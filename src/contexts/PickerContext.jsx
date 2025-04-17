@@ -10,7 +10,10 @@ const initialState = {
   picks: storedPicks,
   selectedPick: null,
   showWinner: false,
-  loading: false
+  loading: false,
+  selectedGif: null,
+waitingGif: null,
+
 };
 
 function reducer(state, actionObj) {
@@ -43,23 +46,29 @@ function reducer(state, actionObj) {
         return {
           ...state,
           loading: true,
-          showWinner: false
+          showWinner: false,
+          waitingGif: actionObj.payload.gif,
         };
       
-      case "RANDOM_PICK_SUCCESS": {
-        if (state.picks.length > 0) {
-          const randomPick = state.picks[Math.floor(Math.random() * state.picks.length)];
-          return {
-            ...state,
-            selectedPick: randomPick,
-            loading: false,
-            showWinner: true
-          };
-        } else {
-          alert("No picks available to choose from.");
-          return state;
+
+
+        case "RANDOM_PICK_SUCCESS": {
+          if (state.picks.length > 0) {
+            const randomPick = state.picks[Math.floor(Math.random() * state.picks.length)];
+            return {
+              ...state,
+              selectedPick: randomPick,
+              selectedGif: actionObj.payload?.gif || null,
+              loading: false,
+              showWinner: true,
+              waitingGif: null,
+            };
+          } else {
+            alert("No picks available to choose from.");
+            return state;
+          }
         }
-      }
+        
 
       case "RESET":
         return {
