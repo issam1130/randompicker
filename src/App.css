@@ -36,6 +36,7 @@
   text-align: center; 
   color: #2E3047;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  
 
 
 
@@ -73,7 +74,7 @@ background-color: #898ffa;
 }
 
 .pick-list li {
-  background-color: #3BBA9C;
+  background-color: #747bff;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -83,7 +84,7 @@ background-color: #898ffa;
 }
 
 .pick-list li:hover {
- background-color: #747bff;
+ background-color: #3BBA9C;
   cursor: pointer;
 }
 .main-contain {
@@ -139,14 +140,93 @@ form button:hover {
   color: #3BBA9C;
 }
 
-
 .play {
   width: 200px;
-  background-color: #747bff;
-  border: 1px solid #3BBA9C;
+  background-color: #3BBA9C;
+  border: 1px solid #747bff;
+  animation: pulse 1.5s infinite ease-in-out;
+  transition: background-color 0.3s ease;
 }
+
 .play:hover {
-background-color: #3BBA9C;
+  background-color: #747bff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 
+
+@media screen and (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .winner {
+    font-size: 2rem;
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+    margin: 2rem auto;
+  }
+
+  .winner-container img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .pick-list {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .pick-list li {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form input, form button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .play {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.1rem;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .loading-container h3 {
+    font-size: 1.2rem;
+  }
+
+  .loading-container img {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+}
