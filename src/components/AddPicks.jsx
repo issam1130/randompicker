@@ -31,7 +31,7 @@ export default function AddPicks() {
       />
       <button onClick={handleAddpick}>Add</button>
       <button className="reset" onClick={() => dispatch({ type: "RESET" })}>
-  Reset
+  Restart
 </button>
     </form>
   );
