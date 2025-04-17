@@ -60,7 +60,7 @@ export default function PickList() {
 
       {state.selectedPick && (
         <div className="winner-container">
-          <h3>Winner is:</h3>
+          <h3>My Random Pick is:</h3>
           <div
             className="winner"
             style={{
